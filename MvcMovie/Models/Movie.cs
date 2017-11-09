@@ -16,16 +16,18 @@ namespace MvcMovie.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ReleaseDate { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+        
         [Required]
+        [RegularExpression(pattern: @"^[A-Z]+[a-zA-Z''-'\s]*$", ErrorMessage = "Must begin with a capital letter and consist of only letters or spaces")]
         [StringLength(30)]
         public string Genre { get; set; }
 
         [Range(1, 100)]
         [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal Price { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$", ErrorMessage = "Test")]
         [StringLength(5)]
         public string Rating { get; set; }
     }

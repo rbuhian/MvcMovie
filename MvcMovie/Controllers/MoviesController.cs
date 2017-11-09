@@ -24,7 +24,7 @@ namespace MvcMovie.Controllers
                            select d.Genre;
 
             GenreList.AddRange(GenryQry.Distinct());
-            ViewBag.movieGenre = new SelectList(GenreList, "Comedy");
+            ViewBag.movieGenre = new SelectList(GenreList, "All");
                         
             var movies = from m in db.Movies select m;
 
